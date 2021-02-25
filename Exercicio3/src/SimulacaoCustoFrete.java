@@ -12,17 +12,14 @@ public class SimulacaoCustoFrete {
         this.distancias = distancias;
     }
 
-    public void compararPrecos(){
-        Caminhao caminhao = new Caminhao();
-        Vagao vagao = new Vagao();
-
+    public void compararPrecos(Caminhao caminhao, Vagao vagao){
         double valorTotal = 0;
         int caminhoes = 0;
         int vagoes = 0;
 
-        for(int iterator = 0; iterator <= this.getPesos().size(); iterator++){
-            caminhao.carga.setPeso(this.getPesos().get(iterator));
-            caminhao.carga.setValor(this.getValores().get(iterator));
+        for(int iterator = 0; iterator < this.getPesos().size(); iterator++){
+            caminhao.carga.setPeso(pesos.get(iterator));
+            caminhao.carga.setValor(valores.get(iterator));
 
             vagao.carga.setPeso(pesos.get(iterator));
             vagao.carga.setValor(valores.get(iterator));
@@ -38,10 +35,12 @@ public class SimulacaoCustoFrete {
                 valorTotal += caminhao.calculaFrete(distancias.get(iterator));
             }
 
-            System.out.println("Serão necessarios "+caminhoes+" caminhões e "+vagoes);
-            System.out.printf("Valor total = %.2f\n",valorTotal);
+
 
         }
+
+        System.out.println("Serão necessarios "+caminhoes+" caminhões e "+vagoes+" vagões");
+        System.out.printf("Valor total = %.2f\n",valorTotal);
     }
 
 

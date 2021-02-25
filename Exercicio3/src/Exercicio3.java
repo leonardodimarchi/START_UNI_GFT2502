@@ -33,6 +33,11 @@ public class Exercicio3 {
 
         SimulacaoCustoFrete simulador = new SimulacaoCustoFrete(pesos, valores, distancias);
 
-        simulador.compararPrecos();
+        Carga carga = new Carga(0,0);
+
+        Caminhao caminhao = new Caminhao(carga);
+        Vagao vagao = new Vagao(carga);
+
+        simulador.compararPrecos(caminhao, vagao);
     }
 }
